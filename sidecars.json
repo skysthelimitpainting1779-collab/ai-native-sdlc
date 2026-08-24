@@ -1,0 +1,18 @@
+{
+  "sidecars": [
+    {
+      "name": "graphify-sentinel",
+      "command": "python",
+      "args": ["./sidecars/graphify_sentinel.py"],
+      "auto_start": true,
+      "description": "Background watcher that keeps the Graphify knowledge graph and long-term mistake memory synchronized with code changes."
+    },
+    {
+      "name": "telemetry-sentinel",
+      "command": "python",
+      "args": ["./sidecars/telemetry_sentinel.py"],
+      "auto_start": false,
+      "description": "Monitors staging/production logs and generates intent.md draft seeds from runtime errors."
+    }
+  ]
+}
