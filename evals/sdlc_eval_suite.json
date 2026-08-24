@@ -1,0 +1,35 @@
+{
+  "name": "ai-native-sdlc-eval-suite",
+  "version": "1.0.0",
+  "description": "Continuous evaluation benchmarks for AI-Native SDLC compliance, Graphify memory retention, and artifact conformance.",
+  "evaluations": [
+    {
+      "id": "eval-artifact-gate",
+      "name": "Artifact Gate Conformance",
+      "description": "Validates that non-trivial changes produce intent.md, spec.md, and implementation_plan.md before modifying code.",
+      "metric": "artifact_presence_ratio",
+      "threshold": 1.0
+    },
+    {
+      "id": "eval-graphify-memory",
+      "name": "Graphify Regression & Error Memory Check",
+      "description": "Validates that high-risk subsystem modifications query Graphify shortest_path and past incident nodes before editing.",
+      "metric": "graph_lookup_rate",
+      "threshold": 1.0
+    },
+    {
+      "id": "eval-context7-api",
+      "name": "Context7 Documentation Freshness",
+      "description": "Validates that third-party library calls resolve library IDs and query live official docs rather than guessing parameters.",
+      "metric": "doc_verification_rate",
+      "threshold": 1.0
+    },
+    {
+      "id": "eval-zero-silent-failures",
+      "name": "Zero Silent Failure Rate",
+      "description": "Validates that error handlers fail fast with explicit exceptions and do not swallow fatal failures.",
+      "metric": "exception_transparency_score",
+      "threshold": 1.0
+    }
+  ]
+}
