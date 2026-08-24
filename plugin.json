@@ -1,0 +1,16 @@
+{
+  "name": "ai-native-sdlc",
+  "version": "1.0.0",
+  "description": "Artifact-driven, human-in-the-loop Software Development Lifecycle (SDLC) playbook for autonomous and agentic engineering workflows.",
+  "author": {
+    "name": "Antigravity Engineering"
+  },
+  "keywords": [
+    "ai-native-sdlc",
+    "sdlc",
+    "agentic-workflows",
+    "artifacts",
+    "intent-driven",
+    "playbook"
+  ]
+}

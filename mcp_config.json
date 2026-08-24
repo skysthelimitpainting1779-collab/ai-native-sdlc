@@ -1,0 +1,26 @@
+{
+  "mcpServers": {
+    "graphify": {
+      "command": "graphify",
+      "args": ["serve"]
+    },
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
+      }
+    },
+    "vercel": {
+      "command": "npx",
+      "args": ["-y", "@vercel/mcp-server"],
+      "env": {
+        "VERCEL_TOKEN": "${VERCEL_TOKEN}"
+      }
+    }
+  }
+}
