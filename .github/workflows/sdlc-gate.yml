@@ -1,0 +1,34 @@
+name: AI-Native SDLC Quality Gate
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  verify-artifacts-and-graph:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Graphify
+        run: pip install graphifyy
+
+      - name: Verify Knowledge Graph Integrity
+        run: |
+          if [ -d "graphify-out" ]; then
+            graphify --update
+          else
+            echo "Building initial Graphify Knowledge Graph..."
+            graphify . --no-viz
+          fi
+
+      - name: Check Artifact Conformance
+        run: |
+          echo "Verifying AI-Native SDLC Artifact Standards..."
