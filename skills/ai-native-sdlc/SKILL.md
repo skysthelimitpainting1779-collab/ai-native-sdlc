@@ -1,83 +1,81 @@
 ---
 name: ai-native-sdlc
-description: Operational playbook and execution engine for the AI-Native Software Development Lifecycle (SDLC). Implements an autonomous continuous closed loop across Planning, Design, Build, Verify, Review, and Live Telemetry Memory Feedback.
+description: Operational playbook and autonomous execution engine for the AI-Native Software Development Lifecycle (SDLC). Takes any raw project idea, user prompt, or goal and executes an autonomous, artifact-driven continuous loop that conducts deep research, builds surgical code, and verifies 100% of invariants across the entire stack.
 ---
 
-# The AI-Native SDLC Continuous Loop Engine
+# The AI-Native SDLC Autonomous Goal & Verification Engine
 
-This skill operationalizes the AI-Native Software Development Lifecycle as an **unbroken, continuous closed loop**. Rather than a static linear pipeline, every stage dynamically informs, verifies, and feeds the next, with production learnings continuously regenerating intent.
+This skill empowers Antigravity to take **any raw project idea, feature request, or architectural goal** and execute an unbroken, autonomous verification loop that leaves zero technical debt or unverified assumptions.
 
 ---
 
-## 🔄 The Closed-Loop Architecture
+## 🎯 Goal Ingestion to 360° Verification Loop
 
 ```mermaid
 graph TD
-    subgraph Closed_Loop ["The Continuous AI-Native SDLC Loop"]
-        L1["1. PLAN (intent.md)<br/>• Graphify Subsystems<br/>• skills.sh Discovery<br/>• GitHub Issues"] 
-        --> L2["2. RESEARCH & DESIGN (spec.md)<br/>• Context7 Live Docs<br/>• Graphify Blast Radius<br/>• ADR Decision Matrix"]
+    subgraph Autonomous_Execution ["End-to-End Goal & Verification Loop"]
+        Goal["💡 RAW PROJECT IDEA / GOAL"] --> Ingest["1. GOAL INGESTION & DECOMPOSITION<br/>• Clarify Intent & Non-Goals<br/>• Discover Subsystems in Graphify<br/>• Auto-Acquire Skills via skills.sh"]
         
-        L2 --> L3["3. BUILD (implementation_plan.md)<br/>• Phased Surgical Edits<br/>• Invariant Preservation<br/>• Strict Types"]
+        Ingest --> Research["2. DEEP RESEARCH & CONTRACT DESIGN<br/>• Context7 Live API Contracts<br/>• Graphify Blast Radius & God Nodes<br/>• Strict Schema & ADR Generation"]
         
-        L3 --> L4["4. CONTINUOUS EVAL & VERIFY<br/>• Automated Test Suites<br/>• Vercel Preview Deploys<br/>• CI Regression Gates"]
+        Research --> Build["3. ATOMIC SURGICAL IMPLEMENTATION<br/>• Implementation Plan Approval Gate<br/>• Strict TypeScript / Python Types<br/>• Zero Silent Failures"]
         
-        L4 -->|Test Failures / Invariant Drift| L3
-        L4 -->|Eval Passed| L5["5. REVIEW & DELIVER (walkthrough.md)<br/>• Automated Code Review<br/>• Human Approval Gate<br/>• GitHub PR Merge"]
+        Build --> Verify["4. 360° VERIFICATION HARNESS<br/>• Static Typing & Linter Checks<br/>• Unit, Integration & Regression Tests<br/>• Live Vercel Staging Deploy & Preview Evals<br/>• Graphify Invariant Diff Audit"]
         
-        L5 --> L6["6. TELEMETRY & MEMORY REGENERATION<br/>• Staging/Prod Anomaly Catch<br/>• graphify --update (Commit Invariants)<br/>• npx skills update -g"]
+        Verify -->|❌ Any Verification Failure| AutoHeal["🔄 AUTO-HEALING REMEDIATION<br/>• Feed error trace back into Build"] --> Build
         
-        L6 -->|Auto-Draft New Intent / Regression Seed| L1
+        Verify -->|✅ 100% Verification Passed| Deliver["5. STAKEHOLDER DELIVERY & REVIEW<br/>• walkthrough.md Evidence Package<br/>• GitHub PR & Automated Review<br/>• Human Sign-Off"]
+        
+        Deliver --> Memory["6. KNOWLEDGE COMMIT & TELEMETRY<br/>• graphify --update (Commit Invariants)<br/>• npx skills update -g<br/>• Telemetry Feedback Loop"]
+        
+        Memory --> NextGoal["🚀 Next Feature / Anomaly Seed"]
     end
 ```
 
 ---
 
-## 🛠️ Tool & Knowledge Discovery Engine
+## 🔍 The 360° Verification Matrix
 
-1. **Graphify Knowledge Graph (`graphify-out/graph.json`)**:
-   - Continuous AST mapping, God-node blast radius, and historical mistake memory.
-   - Core commands: `query_graph`, `get_node`, `shortest_path`, `graphify path`, `graphify explain`.
+Before any project idea, feature, or refactor is considered complete, it MUST pass all 5 verification gates:
 
-2. **Context7 Live Documentation Engine**:
-   - Real-time API contract verification for third-party libraries and frameworks.
-   - Core workflow: `resolve-library-id` -> `query-docs`.
-
-3. **skills.sh Dynamic Capability Package Manager (`npx skills`)**:
-   - On-demand runtime skill resolution: `npx skills find` -> `npx skills add -g` -> `npx skills update -g`.
+| Verification Layer | Tool / Engine | Pass Criteria |
+| :--- | :--- | :--- |
+| **1. Type & Contract Safety** | Strict Compiler / Mypy | Zero `any`, zero untyped params, strict null checks pass. |
+| **2. Codebase Invariant Integrity** | Graphify Knowledge Graph | `shortest_path` and `get_pr_impact` confirm zero broken dependencies or unhandled regressions. |
+| **3. External API Conformance** | Context7 Live Docs | All external library/API usage conforms 100% to verified official documentation. |
+| **4. Functional & Regression Testing**| Pytest / Jest / Playwright | All test suites pass; newly created test cases cover all edge cases identified in `intent.md`. |
+| **5. Live Runtime Staging** | Vercel MCP / Preview URL | Clean preview build with zero runtime console errors and verified visual endpoints. |
 
 ---
 
-## 🔁 Continuous Loop Stage Execution Runbook
+## 🔁 Stage-by-Stage Operational Runbook
 
-### Stage 1: Planning & Intent Synthesis (`intent.md`)
-- Ingest GitHub issues, user requests, or telemetry seeds from Stage 6.
-- Run `query_graph` to inspect affected subsystems and prior incident nodes.
-- Run `npx skills find` to acquire missing domain skills.
-- Produce `intent.md` with explicit non-goals and exit criteria.
+### Stage 1: Goal Ingestion & Intent Definition (`intent.md`)
+- **Action**: Take the user's raw prompt/goal and formalize it into `intent.md`.
+- **Knowledge Lookups**:
+  - Run `query_graph` or `graphify query` to locate existing modules and historical incident nodes.
+  - Run `npx skills find <domain>` to dynamically download required ecosystem skills.
+  - Define clear **In-Scope** vs. **Explicit Non-Goals** to protect against scope creep.
 
 ### Stage 2: Architecture Research & Specification (`spec.md`)
-- Launch `sdlc-researcher` or execute `architecture-research-verification`.
-- Resolve external API specs via Context7 (`resolve-library-id` -> `query-docs`).
-- Map dependency paths via Graphify (`shortest_path`).
-- Produce `spec.md` with strict schemas and ADR trade-offs.
+- **Action**: Launch `sdlc-researcher` or execute `architecture-research-verification`.
+- **Authoritative Specs**:
+  - Resolve official library IDs with Context7 (`resolve-library-id` -> `query-docs`).
+  - Draft `spec.md` with explicit data models and Architectural Decision Records (ADRs).
 
-### Stage 3: Surgical Implementation (`implementation_plan.md`)
-- Formulate phased `implementation_plan.md` before editing files.
-- Apply surgical edits adhering to DRY, KISS, and strict typing.
-- Never write silent try/catch blocks that swallow errors.
+### Stage 3: Surgical Phased Implementation (`implementation_plan.md`)
+- **Action**: Formulate `implementation_plan.md` breaking changes into atomic steps.
+- **Execution**: Apply surgical edits with strict typing, zero-debt refactoring, and fail-fast exception handling.
 
-### Stage 4: Continuous Evaluation & Preview Loop
-- Execute unit/integration test suites and evaluate against `evals/sdlc_eval_suite.json`.
-- Deploy staging preview via Vercel MCP / CLI.
-- **Auto-Healing Loop**: If tests fail or type errors occur, loop back to Stage 3 immediately with failure context.
+### Stage 4: 360° Continuous Verification Loop
+- **Action**: Run the complete automated test suite and evaluate against `evals/sdlc_eval_suite.json`.
+- **Preview Deploy**: Trigger Vercel staging deployment and audit runtime performance.
+- **Auto-Healing**: If any check fails, feed the error trace immediately back into Stage 3 to resolve the issue autonomously.
 
-### Stage 5: Delivery, Review & PR Package (`walkthrough.md`)
-- Run automated first-pass review (safety, style, invariants).
-- Generate `walkthrough.md` with test evidence, preview URLs, and diffs.
-- Open GitHub Pull Request via GitHub MCP (`create_pull_request`).
-- Await human-in-the-loop approval for high-risk boundaries.
+### Stage 5: Delivery & PR Review (`walkthrough.md`)
+- **Action**: Package all changes, test outputs, diffs, and preview links into `walkthrough.md`.
+- **Pull Request**: Open or update the GitHub Pull Request via GitHub MCP (`create_pull_request`).
 
-### Stage 6: Telemetry, Memory Commit & Intent Regeneration
-- On merge, run `scripts/sync-graphify.ps1` (`graphify --update`) to commit new architectural invariants and bug resolutions to the knowledge graph.
-- Update installed skills with `npx skills update -g`.
-- When anomalies or new requirements surface, auto-seed the next iteration at Stage 1.
+### Stage 6: Persistent Memory & Intent Regeneration
+- **Action**: Run `scripts/sync-graphify.ps1` (`graphify --update`) to commit new architectural invariants into `graphify-out/graph.json`.
+- **Continuous Evolution**: Auto-draft subsequent `intent.md` artifacts as runtime telemetry or new goals emerge.
