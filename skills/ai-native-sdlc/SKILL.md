@@ -1,83 +1,83 @@
 ---
 name: ai-native-sdlc
-description: Operational playbook and execution engine for the AI-Native Software Development Lifecycle (SDLC). Integrates official Graphify knowledge-graph navigation, Context7 external documentation retrieval, and skills.sh agent-skills package management for zero-mistake, artifact-driven agentic workflows.
+description: Operational playbook and execution engine for the AI-Native Software Development Lifecycle (SDLC). Implements an autonomous continuous closed loop across Planning, Design, Build, Verify, Review, and Live Telemetry Memory Feedback.
 ---
 
-# The AI-Native SDLC Playbook Skill
+# The AI-Native SDLC Continuous Loop Engine
 
-This skill operationalizes the modern AI-Native Software Development Lifecycle (SDLC) paradigm, moving from linear handoffs to continuous, artifact-driven agentic loops backed by **Graphify** knowledge-graph topology, **Context7** live documentation intelligence, and **skills.sh** dynamic capability acquisition.
+This skill operationalizes the AI-Native Software Development Lifecycle as an **unbroken, continuous closed loop**. Rather than a static linear pipeline, every stage dynamically informs, verifies, and feeds the next, with production learnings continuously regenerating intent.
 
 ---
 
-## Tool & Knowledge Discovery Hierarchy
+## 🔄 The Closed-Loop Architecture
+
+```mermaid
+graph TD
+    subgraph Closed_Loop ["The Continuous AI-Native SDLC Loop"]
+        L1["1. PLAN (intent.md)<br/>• Graphify Subsystems<br/>• skills.sh Discovery<br/>• GitHub Issues"] 
+        --> L2["2. RESEARCH & DESIGN (spec.md)<br/>• Context7 Live Docs<br/>• Graphify Blast Radius<br/>• ADR Decision Matrix"]
+        
+        L2 --> L3["3. BUILD (implementation_plan.md)<br/>• Phased Surgical Edits<br/>• Invariant Preservation<br/>• Strict Types"]
+        
+        L3 --> L4["4. CONTINUOUS EVAL & VERIFY<br/>• Automated Test Suites<br/>• Vercel Preview Deploys<br/>• CI Regression Gates"]
+        
+        L4 -->|Test Failures / Invariant Drift| L3
+        L4 -->|Eval Passed| L5["5. REVIEW & DELIVER (walkthrough.md)<br/>• Automated Code Review<br/>• Human Approval Gate<br/>• GitHub PR Merge"]
+        
+        L5 --> L6["6. TELEMETRY & MEMORY REGENERATION<br/>• Staging/Prod Anomaly Catch<br/>• graphify --update (Commit Invariants)<br/>• npx skills update -g"]
+        
+        L6 -->|Auto-Draft New Intent / Regression Seed| L1
+    end
+```
+
+---
+
+## 🛠️ Tool & Knowledge Discovery Engine
 
 1. **Graphify Knowledge Graph (`graphify-out/graph.json`)**:
-   - Primary source of truth for codebase topology, architectural boundaries, dependency flows, and God-node impact.
-   - Core tools/commands: `query_graph`, `get_node`, `shortest_path`, `graphify path`, `graphify explain`.
-   - Never fall back to unindexed searches unless Graphify graph is unbuilt or non-code files are targeted.
+   - Continuous AST mapping, God-node blast radius, and historical mistake memory.
+   - Core commands: `query_graph`, `get_node`, `shortest_path`, `graphify path`, `graphify explain`.
 
-2. **Context7 External Documentation**:
-   - Primary source of truth for third-party libraries, SDKs, frameworks, and APIs.
-   - Core workflow: `resolve-library-id` -> `query-docs` using exact resolved library identifier (e.g., `/org/project`).
-   - Never rely on outdated training weights for third-party APIs or framework contracts.
+2. **Context7 Live Documentation Engine**:
+   - Real-time API contract verification for third-party libraries and frameworks.
+   - Core workflow: `resolve-library-id` -> `query-docs`.
 
-3. **skills.sh Agent Skills Package Manager (`npx skills`)**:
-   - Primary engine for dynamic agent capability acquisition, domain-specific runbooks, and ecosystem skills.
-   - Core workflow:
-     - Search & discover skills: `npx skills find <query>`
-     - Acquire domain packages: `npx skills add <owner/repo> -g` (e.g., `vercel-labs/agent-skills`)
-     - Execute single-use workflows: `npx skills use <package>@<skill>`
+3. **skills.sh Dynamic Capability Package Manager (`npx skills`)**:
+   - On-demand runtime skill resolution: `npx skills find` -> `npx skills add -g` -> `npx skills update -g`.
 
 ---
 
-## The 6 Lifecycle Stages & Required Artifacts
+## 🔁 Continuous Loop Stage Execution Runbook
 
-### 1. Planning Stage (`intent.md`)
-- **Objective**: Translate raw problem statements, user friction, telemetry, or feature requests into a structured intent document.
-- **Actions**:
-  - Clarify the core user problem and target outcomes.
-  - Query **Graphify** to assess impacted subsystems and architectural God nodes.
-  - Identify missing capabilities and acquire specialized agent skills via **skills.sh** (`npx skills find` / `npx skills add`).
-  - Ingest issues via GitHub MCP (`get_issue`, `list_issues`).
-  - Define explicit non-goals to prevent scope creep.
+### Stage 1: Planning & Intent Synthesis (`intent.md`)
+- Ingest GitHub issues, user requests, or telemetry seeds from Stage 6.
+- Run `query_graph` to inspect affected subsystems and prior incident nodes.
+- Run `npx skills find` to acquire missing domain skills.
+- Produce `intent.md` with explicit non-goals and exit criteria.
 
-### 2. Architecture & Design Stage (`spec.md`)
-- **Objective**: Establish technical specifications and design contracts before coding.
-- **Actions**:
-  - Resolve and query **Context7** for authoritative documentation on any third-party APIs/libraries.
-  - Model data structures, schemas, and API contracts.
-  - Trace relationship paths using Graphify (`shortest_path`) to document integration boundaries.
-  - Formulate Architectural Decision Records (ADRs) where trade-offs exist.
+### Stage 2: Architecture Research & Specification (`spec.md`)
+- Launch `sdlc-researcher` or execute `architecture-research-verification`.
+- Resolve external API specs via Context7 (`resolve-library-id` -> `query-docs`).
+- Map dependency paths via Graphify (`shortest_path`).
+- Produce `spec.md` with strict schemas and ADR trade-offs.
 
-### 3. Implementation / Build Stage (`implementation_plan.md`)
-- **Objective**: Formulate surgical, multi-phase execution plans before touching code.
-- **Actions**:
-  - Break tasks down into atomic, reviewable phases.
-  - Enforce strict typing and zero-silent-failure patterns.
-  - Leverage installed domain skills (e.g., Vercel optimize, Playwright, DB sync) during execution.
-  - Make surgical, minimal code edits respecting existing invariants.
+### Stage 3: Surgical Implementation (`implementation_plan.md`)
+- Formulate phased `implementation_plan.md` before editing files.
+- Apply surgical edits adhering to DRY, KISS, and strict typing.
+- Never write silent try/catch blocks that swallow errors.
 
-### 4. Verification & Testing Stage (Eval & Test Suites)
-- **Objective**: Continuous verification through automated harnesses and preview deployments.
-- **Actions**:
-  - Implement unit, integration, and regression tests alongside code changes.
-  - Validate against edge cases identified during planning and Graphify PR impact checks.
-  - Trigger preview builds/deployments (e.g., Vercel MCP / CLI) for staging validation.
-  - Verify linting, type checks, and build steps synchronously.
+### Stage 4: Continuous Evaluation & Preview Loop
+- Execute unit/integration test suites and evaluate against `evals/sdlc_eval_suite.json`.
+- Deploy staging preview via Vercel MCP / CLI.
+- **Auto-Healing Loop**: If tests fail or type errors occur, loop back to Stage 3 immediately with failure context.
 
-### 5. Review & Delivery Stage (`walkthrough.md`)
-- **Objective**: High-signal summary and review package for stakeholders.
-- **Actions**:
-  - Provide an automated first-pass code review (style, invariants, safety).
-  - Produce a structured `walkthrough.md` detailing modified files, verification commands, and test outcomes.
-  - Open or update Pull Requests via GitHub MCP (`create_pull_request`, `create_pull_request_review`).
-  - Highlight security-sensitive or high-risk areas for human sign-off.
+### Stage 5: Delivery, Review & PR Package (`walkthrough.md`)
+- Run automated first-pass review (safety, style, invariants).
+- Generate `walkthrough.md` with test evidence, preview URLs, and diffs.
+- Open GitHub Pull Request via GitHub MCP (`create_pull_request`).
+- Await human-in-the-loop approval for high-risk boundaries.
 
-### 6. Maintenance & Feedback Loop
-- **Objective**: Continuous operation and intent regeneration.
-- **Actions**:
-  - Ingest operational feedback and telemetry anomalies.
-  - Update the Graphify index (`graphify --update`) to commit newly established patterns and failure modes.
-  - Sync and update installed skills via `npx skills update -g`.
-  - Convert failure modes directly into new `intent.md` seeds for the next cycle.
-
+### Stage 6: Telemetry, Memory Commit & Intent Regeneration
+- On merge, run `scripts/sync-graphify.ps1` (`graphify --update`) to commit new architectural invariants and bug resolutions to the knowledge graph.
+- Update installed skills with `npx skills update -g`.
+- When anomalies or new requirements surface, auto-seed the next iteration at Stage 1.
