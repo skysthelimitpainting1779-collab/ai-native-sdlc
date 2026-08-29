@@ -1,0 +1,68 @@
+{
+  "suite": "business-factory-v0",
+  "version": "0.1.0",
+  "purpose": "Reject business-factory runs that skip commerce proof, falsification, adversarial review, resource discipline, provenance, or governed Software Factory handoff.",
+  "required_checks": [
+    {
+      "id": "BF-E01",
+      "name": "purchase_thesis_exists",
+      "pass": "buyer, problem, trigger, economic_damage, alternatives, offer, reach, delivery, retention and unit_economics are present or explicitly UNKNOWN"
+    },
+    {
+      "id": "BF-E02",
+      "name": "hypotheses_are_falsifiable",
+      "pass": "every material hypothesis has a predeclared prediction, success condition, failure condition and evidence plan"
+    },
+    {
+      "id": "BF-E03",
+      "name": "cheapest_valid_test_considered",
+      "pass": "selected experiment records at least one cheaper alternative or explains why no cheaper valid test exists"
+    },
+    {
+      "id": "BF-E04",
+      "name": "zero_new_cash_policy",
+      "pass": "new cash spend is zero OR an evidenced binding constraint plus expected return and founder approval is recorded"
+    },
+    {
+      "id": "BF-E05",
+      "name": "material_transition_war_room",
+      "pass": "every material promotion has evidence packet, opposition, judge, dissent field and machine-readable verdict"
+    },
+    {
+      "id": "BF-E06",
+      "name": "no_one_off_rule_promotion",
+      "pass": "rules promoted for reuse have replication/context evidence; single-run wins remain observations/pattern candidates"
+    },
+    {
+      "id": "BF-E07",
+      "name": "no_sunk_cost_reasoning",
+      "pass": "resource allocation is justified by forward expected value/information rather than previous spend"
+    },
+    {
+      "id": "BF-E08",
+      "name": "execution_surface_arbitrage",
+      "pass": "selected execution surface is justified against deterministic code, CLI, workflow, already-paid/free API/open source, MCP/WebMCP, browser, computer use, messaging/voice and human alternatives as applicable"
+    },
+    {
+      "id": "BF-E09",
+      "name": "software_handoff_earned",
+      "pass": "Software Factory handoff traces to validated business outcome/evidence and includes acceptance tests, non-goals, security boundaries and rollback"
+    },
+    {
+      "id": "BF-E10",
+      "name": "provenance_preserved",
+      "pass": "material claims, experiments, decisions and promotions identify their source/evidence or are marked unverified"
+    },
+    {
+      "id": "BF-E11",
+      "name": "cross_scope_isolation",
+      "pass": "no company-specific credentials, customers, protected records, pricing authority or decisions are transferred across ventures without explicit authorization"
+    },
+    {
+      "id": "BF-E12",
+      "name": "next_allocation_decision_exists",
+      "pass": "run ends in exactly one primary next allocation decision: EXECUTE, RESEARCH, RETEST, BRANCH, HOLD, HANDOFF, KILL or ESCALATE"
+    }
+  ],
+  "completion_rule": "A run is not considered promoted merely because an artifact exists. Promotion requires all applicable required checks plus the stage-specific acceptance evidence."
+}
